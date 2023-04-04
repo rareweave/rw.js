@@ -58,6 +58,33 @@ export interface Client {
 
   /**
    *
+   * Index your NFT
+   * Usually do this minutes after you mint your NFT
+   *
+   * @param {string} contractId The NFT you want to index
+   *
+   * @returns {Promise<boolean>}
+   *
+   */
+  Index: (contractId: string) => Promise<boolean>;
+
+  /**
+   *
+   * Transfer you NFT to another address
+   *
+   * @param {WarpSdk.Contract<unknown>} contract nft you want to transfer
+   * @param {string} address The address for the NFT to go
+   *
+   * @returns {Promise<unknown>}
+   *
+   */
+  Transfer: (
+    contract: WarpSdk.Contract<unknown>,
+    address: string
+  ) => Promise<unknown>;
+
+  /**
+   *
    * Mint your own NFT
    *
    * @param {types.Nft} data nft Data
@@ -138,6 +165,18 @@ export class Client implements Client {
     }
   };
 
+  Tansfer = async (
+    contract: WarpSdk.Contract<unknown>,
+    address: string
+  ): Promise<unknown> => {
+    let transfer = await contract.writeInteraction({
+      function: "transfer",
+      target: address,
+    });
+
+    return transfer;
+  };
+
   Mint = async (data: types.Nft, img: Buffer): Promise<WarpSdk.Transaction> => {
     if (!this.wallet) {
       throw new Error("Must connect a wallet");
@@ -189,6 +228,8 @@ export class Client implements Client {
 
     return tx;
   };
+
+  Purchase = async () => {};
 }
 
 function encodeTags(tags: any) {
