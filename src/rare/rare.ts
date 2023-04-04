@@ -127,6 +127,10 @@ export class Client implements Client {
   };
 
   Mint = async (data: types.Nft, img: Buffer): Promise<WarpSdk.Transaction> => {
+    if (!this.wallet) {
+      throw new Error("Must connect a wallet");
+    }
+
     let initState = data;
 
     let tx = await this.Warp.arweave.createTransaction(
