@@ -1,4 +1,4 @@
-# rare.js
+# Rare.js
 
 Interact with the Rareweave platform programatically
 
