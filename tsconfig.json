@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "rootDir": "./src",
+    "outDir": "./build",
+    "strict": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true
+  },
+  "exclude": ["./build"]
+}
