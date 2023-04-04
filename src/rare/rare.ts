@@ -126,6 +126,18 @@ export class Client implements Client {
     }
   };
 
+  Index = async (contractId: string) => {
+    try {
+      await fetch("http://" + this.prophet + "/index?id=" + contractId, {
+        method: "GET",
+      });
+
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+
   Mint = async (data: types.Nft, img: Buffer): Promise<WarpSdk.Transaction> => {
     if (!this.wallet) {
       throw new Error("Must connect a wallet");
