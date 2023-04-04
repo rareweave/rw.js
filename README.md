@@ -47,4 +47,5 @@ Read examples
 1. Fetch NFT data
 2. Mint
 3. Edit
-4. ~~Buy~~
+4. Indexing
+5. ~~Buy~~
