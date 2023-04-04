@@ -1,5 +1,6 @@
 import * as types from "../@types";
 import * as WarpSdk from "warp-contracts";
+import { DeployPlugin } from "warp-contracts-plugin-deploy";
 
 /**
  *
@@ -72,8 +73,7 @@ export class Client implements Client {
   address: string | undefined;
   constructor({ prophet = "" }: any) {
     this.prophet = prophet;
-    this.Warp = WarpSdk.WarpFactory.forMainnet();
-    WarpSdk.LoggerFactory.INST.logLevel("error");
+    this.Warp = WarpSdk.WarpFactory.forMainnet().use(new DeployPlugin());
   }
 
   _initWallet = async ({ JWK = "" }): Promise<Client> => {
@@ -131,8 +131,6 @@ export class Client implements Client {
       throw new Error("Must connect a wallet");
     }
 
-    let initState = data;
-
     let tx = await this.Warp.arweave.createTransaction(
       {
         data: Buffer.from(new Uint8Array(img)),
@@ -146,7 +144,7 @@ export class Client implements Client {
           { name: "SDK", value: "Warp" },
           { name: "Nonce", value: Date.now().toString() },
           { name: "Content-Type", value: data.contentType },
-          { name: "Init-State", value: JSON.stringify(initState) },
+          { name: "Init-State", value: JSON.stringify(data) },
           { name: "Title", value: data.name },
           { name: "Type", value: "Tradable-SW-NFT" },
           { name: "Topics", value: "NFTs, Atomic Assets" },
@@ -166,7 +164,7 @@ export class Client implements Client {
       this.wallet
     );
 
-    if (img.byteLength > 100000) {
+    if (img.byteLength > 10000) {
       await this.Warp.arweave.transactions.sign(tx, this.wallet);
       let uploader = await this.Warp.arweave.transactions.getUploader(tx);
       while (!uploader.isComplete) {

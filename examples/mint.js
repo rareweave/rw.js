@@ -10,26 +10,28 @@ const fs = require("fs");
   });
 
   // Img of your nft
-  const imgBuffer = fs.readFileSync(__dirname + "/images/img.png");
+  const imgBuffer = fs.readFileSync(__dirname + "/images/DUCK2.png");
+
+  console.log(imgBuffer);
 
   console.log(
     await client.Mint(
       {
-        name: "Testing",
+        name: "Duck #2",
         owner: "VYDyg7TPf5tB4wqeCOklGx5VWjrbRFkDnsCuFaWhtb8",
-        price: 10000000000000,
+        price: 1000000000000,
         evolve: null,
         minter: "VYDyg7TPf5tB4wqeCOklGx5VWjrbRFkDnsCuFaWhtb8",
         ticker: "RWNFT",
         forSale: true,
-        royalty: 5,
+        royalty: 0.05,
         balances: {
           VYDyg7TPf5tB4wqeCOklGx5VWjrbRFkDnsCuFaWhtb8: 1,
         },
         reserver: null,
         createdAt: Date.now(),
         contentType: "image/png",
-        description: "Testing 12",
+        description: "MS Paint Duck #2",
         divisibility: 0,
         reservationTxId: null,
         reservationBlockHeight: 0,
