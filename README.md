@@ -4,7 +4,7 @@ Interact with the Rareweave platform programatically
 
 ## Supports
 
-    Fetch NFT data
-    Mint
-    Edit
-    ~~Buy~~
+    1. Fetch NFT data
+    2. Mint
+    3. Edit
+    4. ~~Buy~~
