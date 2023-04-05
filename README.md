@@ -1,4 +1,4 @@
-# Rare.js
+# rw.js
 
 Interact with the Rareweave platform programatically
 
@@ -9,11 +9,11 @@ This library isnt finished and is prone to breaking changes
 # Getting Started
 
 ```js
-const rare = require("rare.js"); // Place holder name
+const rw = require("rw.js"); // Place holder name
 const JWK = require("./JWK.json"); // Your wallet pretty much
 
 (async () => {
-  const client = await new rare.Client({
+  const client = await new rw.Client({
     prophet: "prophet.rareweave.store",
   })._initWallet({
     JWK, // Dont need to run this function however you must to mint etc
