@@ -15,8 +15,7 @@ const JWK = require("./JWK.json"); // Your wallet pretty much
 (async () => {
   const client = await new rw.Client({
     prophet: "prophet.rareweave.store",
-  })._initWallet({
-    JWK, // Dont need to run this function however you must to mint etc
+    wallet: JWK,
   });
 
   let nft = await client.GetNft("HIufcajDbKEbQIbvORswimsuwAhz4_QaG5-a-JwuSBo");

@@ -98,10 +98,10 @@ export interface Client {
 
 export class Client implements Client {
   address: string | undefined;
-  constructor({ prophet = "", JWK = "" }: any) {
+  constructor({ prophet = "", wallet = "" }: any) {
     this.prophet = prophet;
     this.Warp = WarpSdk.WarpFactory.forMainnet().use(new DeployPlugin());
-    this.wallet = JWK;
+    this.wallet = wallet;
   }
 
   GetNfts = async (): Promise<types.AllNfts> => {
