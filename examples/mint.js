@@ -5,8 +5,7 @@ const fs = require("fs");
 (async () => {
   const client = await new rare.Client({
     prophet: "prophet.rareweave.store",
-  })._initWallet({
-    JWK,
+    wallet: JWK,
   });
 
   // Img of your nft

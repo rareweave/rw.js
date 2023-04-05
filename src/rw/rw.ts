@@ -102,6 +102,8 @@ export class Client implements Client {
     this.prophet = prophet;
     this.Warp = WarpSdk.WarpFactory.forMainnet().use(new DeployPlugin());
     this.wallet = wallet;
+
+    WarpSdk.LoggerFactory.INST.logLevel("error");
   }
 
   GetNfts = async (): Promise<types.AllNfts> => {
