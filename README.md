@@ -9,7 +9,7 @@ This library isnt finished and is prone to breaking changes
 # Getting Started
 
 ```js
-const rare.js = require("rare.js"); // Place holder name
+const rare = require("rare.js"); // Place holder name
 const JWK = require("./JWK.json"); // Your wallet pretty much
 
 (async () => {
@@ -22,7 +22,7 @@ const JWK = require("./JWK.json"); // Your wallet pretty much
   let nft = await client.GetNft("HIufcajDbKEbQIbvORswimsuwAhz4_QaG5-a-JwuSBo");
 
   // NFT State
-  let readState = await nft.readState()
+  let readState = await nft.readState();
   let state = await readState.cachedValue.state;
 
   // Editing NFT
