@@ -98,16 +98,11 @@ export interface Client {
 
 export class Client implements Client {
   address: string | undefined;
-  constructor({ prophet = "" }: any) {
+  constructor({ prophet = "", JWK = "" }: any) {
     this.prophet = prophet;
     this.Warp = WarpSdk.WarpFactory.forMainnet().use(new DeployPlugin());
-  }
-
-  _initWallet = async ({ JWK = "" }): Promise<Client> => {
     this.wallet = JWK;
-    this.address = await this.Warp.arweave.wallets.getAddress(this.wallet);
-    return this;
-  };
+  }
 
   GetNfts = async (): Promise<types.AllNfts> => {
     let nfts = await fetch("http://" + this.prophet + "/nfts", {

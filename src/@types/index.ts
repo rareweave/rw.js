@@ -1,5 +1,6 @@
 export type RareClient = {
   prophet: string;
+  wallet: Object;
 };
 
 export type AllNfts = {
