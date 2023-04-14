@@ -8,7 +8,7 @@ const JWK = require("./JWK.json");
 
   let nft = await client.GetNft("wHRNH2bzJ_sT3NDD2-qlujXDVDyYxVK_4UZB18mNgJM");
 
-  let edit = await client.Tansfer(
+  let edit = await client.Transfer(
     nft,
     "udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38"
   );
